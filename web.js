@@ -1,9 +1,19 @@
 var express = require('express');
 var app = express.createServer(express.logger());
+var fs = require('fs');
+    
 
 
 app.get('/', function(request, response) {
+
+    fs.readFile('/home/ubuntu/bitstarter/index.html', 'utf8', function (err,data){
+	if(err) {
+	    return 'error';
+	    }
+
   response.send('wassa');
+	});
+
 });
 
 
