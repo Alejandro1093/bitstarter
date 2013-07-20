@@ -1,9 +1,23 @@
-var express = require('express');
+ear express = require('express');
 var app = express();
 app.use(express.logger());
 
+var datas;
+
+fs = require('fs');
+fs.readFile('/bitstarter/index.html', 'utf8', function (err, data) {
+
+    if (err) {
+	return console.log(err);
+	}
+    datas = data;
+    console.log(data);
+
+});
+
+
 app.get('/', function(request, response) {
-  response.send('Hello World2!');
+  response.send(datas);
 });
 
 var port = process.env.PORT || 5000;
