@@ -1,18 +1,15 @@
 var express = require('express');
 var app = express.createServer(express.logger());
 var fs = require('fs');
-    
-
+var coso = fs.readFileSync(./index.html);
+var buff = new Buffer(coso);
+var string = buf.toString(buff);
 
 app.get('/', function(request, response) {
 
-    fs.readFile('./index.html', 'utf8', function (err,data){
-	if(err) {
-	    return console.log(err);
-	    }
-	console.log(data);
-    });
-    
+    response.send(string);
+
+  
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
