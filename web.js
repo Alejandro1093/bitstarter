@@ -1,19 +1,5 @@
 ear express = require('express');
-var app = express();
-app.use(express.logger());
-
-var datas;
-
-fs = require('fs');
-fs.readFile('/bitstarter/index.html', 'utf8', function (err, data) {
-
-    if (err) {
-	return console.log(err);
-	}
-    datas = data;
-    console.log(data);
-
-});
+var app = express.createServer(express.logger());
 
 
 app.get('/', function(request, response) {
