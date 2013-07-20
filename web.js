@@ -8,10 +8,9 @@ app.get('/', function(request, response) {
 
     fs.readFile('/home/ubuntu/bitstarter/index.html', 'utf8', function (err,data){
 	if(err) {
-	    return 'error';
+	    return console.log(err);
 	    }
 
-  response.send('wassa');
 	});
 
 });
